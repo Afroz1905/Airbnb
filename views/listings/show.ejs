@@ -1,19 +1,16 @@
-
-
 <% layout("/layouts/boilerplate") %>
 <script>
     const mapToken= "<%= process.env.MAP_TOKEN %>"
     const listing = <%-JSON.stringify(listing)%>;
-    
 </script>
 <div class="row">
-    <div class="col-8 offset-3"><br>
-        <h1><%= listing.title %></h1>
+    <div class="col-8 offset-3">
+        <h1 style="color: #fe424d;"><%= listing.title %></h1>
         <div class="card col-9 show-card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
             <div class="card-body">
                 <p class="card-text">
-                    <p><i>Owned By <%= listing.owner.username %></i></p>
+                    <p><b><i>Owned By <%= listing.owner.username %></i></b></p>
                     <p><%= listing.description %></p>
                     <p><%= listing.price.toLocaleString("en-IN") %> / Night</p>
                     <p><%= listing.location %></p>
@@ -74,12 +71,15 @@
     <% for(review of listing.reviews){%>
          <div class="card mb-3 ms-3 col-5">
             <div class="card-body">
-                <h5 class="card-title"><b>@<% review.author%></b></h5>
+                <h5 class="card-title"><b>@<%= review.author.username%></b></h5>
                 <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
                 <p class="card-text"><%=review.comment%></p>
+                <% if(review.author.username  === currUser.username){ %>
                 <form class="mb-3" method="post" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" >
+                    
                     <button class="btn btn-sm btn-dark">Delete</button>
                 </form>
+                <% } %>
             </div>
          </div>
 
@@ -88,10 +88,15 @@
 
     </DIV>
     <div class="col-8 offset-3 mb-3">
-        <h3>Where you'll be</h3>
+        <h3 style="color: #fe424d;">Where you'll be</h3>
         <div id='map'></div>
     </div>
+</div><br>
+
+<div class="offers">
+    <img src="/offers.png" alt="offers">
 </div>
+<br><br>
 
 <script src="../js/map.js"></script>
 

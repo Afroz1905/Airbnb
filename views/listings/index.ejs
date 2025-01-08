@@ -6,18 +6,20 @@
         display: flex;
         flex-wrap:wrap;
         align-items: center;
+         
         
     }
     .filter{
        text-align: center; 
        margin-right: 1rem;
-       margin-top:2rem;
+       margin-top:0.1rem;
        opacity:0.7;
-       font-size:medium;
+       font-size:21px;
+       --bs-icon-link-transform: translate3d(0, -.125rem, 0);
     }
     .filter:hover{
-        opacity:1;
-        cursor:ppointer;
+        opacity:1.5;
+        cursor:pointer;
     }
     .filter p{
         font-size:small;
@@ -28,14 +30,33 @@
     .tax-toggle{
         border: 1px solid black;
         border-radius: 1rem;
-        height: 2.3rem;
-        width: 12rem;
-        font-size: 12px;
+        height: 2.7rem;
+        width: 14rem;
+        font-size: 13px;
         padding: 1rem;
-        margin-left: 6.5rem;
+        margin-left: 2rem;
         display: flex;
         align-items: center;
     }
+    .arrow{
+        margin-left: 200px;
+        margin-top: 115px;
+        font-size: 27px;
+        color: aliceblue;
+    }
+    .h{
+        margin-left: 230px;
+        margin-top: 10px;
+    }
+    .filter p:hover{
+        text-decoration: underline;
+    text-decoration-thickness: 2.5px;  
+    text-decoration-color: black; 
+    text-underline-offset: 6px;  
+     
+    border-radius: 3px;
+    }
+     
     
 </style>
 
@@ -91,10 +112,15 @@
         <div><i class="fa-solid fa-person-swimming"></i></div>
        <p> Amazing Pools</p>
     </div>
+    <div class="filter">
+        <div><i class="fa-regular fa-snowflake"></i></div>
+       <p> Arctic</p>
+    </div>
     <div class="tax-toggle">
+        
     <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+        <label class="form-check-label" for="flexSwitchCheckDefault"><b>Display total after taxes</b></label>
       </div></div>
 
 </div>
@@ -104,9 +130,12 @@
         <% for(let listing of alllistings) { %>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-3 mt-3">  
                 <a href="/listings/<%=listing._id%>" style="text-decoration:none;">
-                    <div class="card listing-card" style="width: 100%;">  
-                        <img src="<%=listing.image.url%>" class="card-img-top" alt="image" style="height: 18rem; object-fit: cover;">
-                        <div class="card-img-overlay">abcd</div>
+                    <div class="card listing-card" style="width: 100%;"> 
+                         
+                        <img src="<%=listing.image.url%>"  class="card-img-top" alt="image" style="height: 18rem; object-fit: cover;">
+                        <div class="card-img-overlay"><i class="fa-solid fa-circle-chevron-right arrow"></i>
+                             
+                        </div>
                         <div class="card-body">
                             <!-- <p class="card-text"> 
                                 <b><%=listing.title%></b><br>
@@ -114,9 +143,10 @@
                                 
                             </p> -->
                             <p class="card-text"> 
-                                <b><%=listing.title%></b><br>
-                                      &#8377;<%= listing.price.toLocaleString("en-IN") %>/Night
-                                      <i class="tax-info">&nbsp; &nbsp;+18% GST</i>
+                                <b><%=listing.title%> </b><br>
+                                 
+                                      <b>&#8377;<%= listing.price.toLocaleString("en-IN") %></b> /Night
+                                      <i class="tax-info">&nbsp; &nbsp;<b>+18% </b>GST</i>
                                 
                             </p>
                             

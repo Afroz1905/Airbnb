@@ -1,4 +1,4 @@
-<style>
+ <style>
   .search-btn{
     background-color: #fe424d;
     color: #fff;
@@ -18,38 +18,237 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 0.9rem;
   }
+  
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 60px;
+  margin-bottom: 21px;
+  max-width: 850px;
+  width: 100%;
+  height: 68px;
+  border: #ccc solid 1px ;
+}
+
+.search-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  font-size: 12px;
+}
+
+.search-section label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.search-section input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+}
+ 
+
+.search-section input::placeholder {
+  color: #aaa;
+  
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: #ddd;
+}
+
+#search-btn {
+  background-color: #ff385c;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#search-btn .search-icon {
+  font-size: 20px;
+}
+
+#search-btn:hover {
+  background-color: #ff4f70;
+}
+.fa-airbnb{
+  color: #fe424d;
+  font-size: 35px;
+
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+.fa-airbnb{
+  color: #fe424d;
+  font-size: 100px;
+  margin-left: 6px;
+}
+ 
 </style>
 
-    <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+    <nav class="navbar navbar-expand-md bg-body-light  sticky-top"  >
         <div class="container-fluid">
-          <a class="navbar-brand" href="/Listings"> <i class="fa-regular fa-compass"></i></a>
+          <a class="navbar-brand" href="/Listings">   <b><i class="fa-brands fa-airbnb "></i></b><b style="color: #fe424d; font-size: 24px;">airbnb</b></a>
+          <!-- <a class="navbar-brand" href="/Listings"> <i class="fa-regular fa-compass"></i></a> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"  >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              
-              <a class="nav-link" href="/Listings">Explore</a>
-              
-              
-            </div>
+            
             <div class="navbar-nav ms-auto">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" >
-                <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-              </form>
-            </div>
-              
-                
+              <p><b style="font-size: 18px;">Stays</b></p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+              <p style="color: rgb(83, 83, 82); font-size: 18px; margin-top: 7px;">Experiences</p>
+           </div>    
               <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Airbnb your home</a>
+                <a class="nav-link" href="/listings/new"><b>Airbnb your home</b></a>&nbsp;&nbsp;
                 <% if(!currUser){%>
-                <a class="nav-link active"   href="/signup"><b>SignUp</b></a>
-                <a class="nav-link" href="/login"><b>Login</b></a>
+                <a class="nav-link active" href="/signup"> <i class="fa-solid fa-globe"></i></a>
+                <a class="nav-link" href="/login"><b>Login</b>&nbsp;&nbsp;<i class="fa-solid fa-right-from-bracket"></i></a>&nbsp;&nbsp;
                 <% } %> <% if(currUser) {%>
-                <a class="nav-link" href="/logout"><b>Log Out</b></a>
+                <a class="nav-link" href="/logout"><b>Log Out</b>&nbsp;&nbsp;<i class="fa-solid fa-right-from-bracket"></i></a>&nbsp;&nbsp;
                 <% } %>
               </div>
+            
+            </nav> 
+              
+               <nav class="navbar navbar-expand-lg bg-body-light  sticky-top border-bottom" >
+              <div class="search-bar">
+                <div class="search-section">
+                  <label for="where"><b>Where</b></label>
+                  <input type="text" id="where" placeholder="Search destinations">
+                </div>
+                <div class="divider"></div>
+                
+                <div class="search-section" style="position: relative;">
+                  <label for="check-out" style="font-size: 14px; color: #555; margin-top: 9px;"><b>Check In</b></label>
+                  <input 
+                    type="date" 
+                    id="check-out" 
+                    style="
+                      width: 100%; 
+                      position: relative; 
+                      background: none; 
+                      z-index: 1; 
+                      color: transparent;
+                      caret-color: black;" 
+                    onchange="this.style.color = this.value ? 'black' : 'transparent';">
+                  <span 
+                    class="custom-placeholder" 
+                    style="
+                      position: absolute; 
+                      top: 75%;
+                      font-size: small; 
+                      left: 10px; 
+                      transform: translateY(-50%); 
+                      color: #aaa; 
+                      pointer-events: none; 
+                      z-index: 0;
+                      ">
+                    Add dates
+                  </span>
+                </div>
+                
+                <script>
+                  const dateInput1 = document.getElementById('check-out');
+                  const placeholder2 = document.querySelector('.custom-placeholder');
+                
+                  dateInput1.addEventListener('input', () => {
+                    placeholder.style.display = dateInput1.value ? 'none' : 'block';
+                  });
+                </script>
+                <div class="divider"></div>
+                <div class="search-section" style="position: relative;">
+                  <label for="check-out" style="font-size: 14px; color: #555; margin-top: 9px;"><b>Check out</b></label>
+                  <input 
+                    type="date" 
+                    id="check-out" 
+                    style="
+                      width: 100%; 
+                      
+                       
+                      position: relative; 
+                      background: none; 
+                      z-index: 1; 
+                      color: transparent;
+                      caret-color: black;" 
+                    onchange="this.style.color = this.value ? 'black' : 'transparent';">
+                  <span 
+                    class="custom-placeholder" 
+                    style="
+                      position: absolute; 
+                      top: 75%;
+                      font-size: small; 
+                      left: 10px; 
+                      transform: translateY(-50%); 
+                      color: #aaa; 
+                      pointer-events: none; 
+                      z-index: 0;
+                      ">
+                    Add dates
+                  </span>
+                </div>
+                
+                <script>
+                  const dateInput = document.getElementById('check-out');
+                  const placeholder = document.querySelector('.custom-placeholder');
+                
+                  dateInput.addEventListener('input', () => {
+                    placeholder.style.display = dateInput.value ? 'none' : 'block';
+                  });
+                </script>
+                
+                <div class="divider"></div>
+                <div class="search-section">
+                  <label for="guests"><b>Who</b></label>
+                  <input type="number" id="guests" placeholder="Add guests" min="1">
+                </div>
+                <button id="search-btn">
+                  <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </button>
+              </div>
+              <br><br>
           
         </div>
+        
       </nav>
+<script>
+      document.getElementById('search-btn').addEventListener('click', () => {
+        const where = document.getElementById('where').value;
+        const checkIn = document.getElementById('check-in').value;
+        const checkOut = document.getElementById('check-out').value;
+        const guests = document.getElementById('guests').value;
+      
+        if (where && checkIn && checkOut && guests) {
+          alert(`Searching for: \nDestination: ${where}\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nGuests: ${guests}`);
+        } else {
+          alert('Please fill in all the fields.');
+        }
+      });
+    </script>
+
+
+    

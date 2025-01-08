@@ -1,16 +1,194 @@
+<style>
+   .tabs {
+     margin: 20px 0;
+   }
+ 
+   .tab-headings {
+     display: flex;
+     list-style: none;
+     padding: 0;
+     border-bottom: 2px solid #ddd;
+   }
+ 
+   .tab-headings li {
+     margin: 0;
+   }
+ 
+   .tab-btn {
+     padding: 10px 20px;
+     cursor: pointer;
+     font-weight: bold;
+     border: 1px solid transparent;
+     border-bottom: none;
+     background: none;
+     color: #333;
+   }
+ 
+   .tab-btn:hover,
+   .tab-btn:focus {
+     background-color: #f8f8f8;
+     border: 1px solid #ddd;
+     outline: none;
+   }
+ 
+   .tab-btn.active {
+     border: 1px solid #ddd;
+     background-color: #f8f8f8;
+     border-bottom: 2px solid white;
+   }
+
+   footer {
+  background-color: #f7f7f7;
+  padding: 20px 40px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+.fa-brands{
+  margin-right: 14px;
+  font-size: 1.5rem;
+}
+a i{
+  outline: none;
+  border: none; 
+  color: black;
+}
+ </style>
+
 <footer class="mb-0">
-    <div class="f-info">
-       <div class="f-info-social">
-         <i class="fa fa-facebook-square" aria-hidden="true"></i>
-         <i class="fa fa-instagram" aria-hidden="true"></i>
-         <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+   <div class="f-navigation">
+      <ul class="tab-headings">
+         <li>
+           <form action="/popular" method="GET">
+             <button type="submit" class="tab-btn">Popular</button>
+           </form>
+          
+         </li>
+         <li>
+           <form action="/arts" method="GET">
+             <button type="submit" class="tab-btn">Arts & Culture</button>
+           </form>
+         </li>
+         <li>
+           <form action="/outdoors" method="GET">
+             <button type="submit" class="tab-btn">Outdoors</button>
+           </form>
+         </li>
+         <li>
+           <form action="/mountains" method="GET">
+             <button type="submit" class="tab-btn">Mountains</button>
+           </form>
+         </li>
+         <li>
+           <form action="/beach" method="GET">
+             <button type="submit" class="tab-btn">Beach</button>
+           </form>
+         </li>
+         <li>
+           <form action="/unique" method="GET">
+             <button type="submit" class="tab-btn">Unique Stays</button>
+           </form>
+         </li>
+         <li>
+           <form action="/categories" method="GET">
+             <button type="submit" class="tab-btn">Categories</button>
+           </form>
+         </li>
+         <li>
+           <form action="/things-to-do" method="GET">
+             <button type="submit" class="tab-btn">Things to Do</button>
+           </form>
+         </li>
+       </ul>
+      
+   </div>
+    
+   
 
-       </div>  
-       <div class="f-info-brand">&copy; WanderLust Private Limited</div> 
-       <div class="f-info-links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-       </div>
-
-    </div>
-</footer>
+   <div class="f-info">
+    <footer style="margin-top: 20px;">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">AirCover</a></li>
+            <li><a href="#">Anti-discrimination</a></li>
+            <li><a href="#">Disability support</a></li>
+            <li><a href="#">Cancellation options</a></li>
+            <li><a href="#">Report neighbourhood concern</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Hosting</h3>
+          <ul>
+            <li><a href="#">Airbnb your home</a></li>
+            <li><a href="#">AirCover for Hosts</a></li>
+            <li><a href="#">Hosting resources</a></li>
+            <li><a href="#">Community forum</a></li>
+            <li><a href="#">Hosting responsibly</a></li>
+            <li><a href="#">Join a free Hosting class</a></li>
+            <li><a href="#">Find a co-host</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Airbnb</h3>
+          <ul>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">New features</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Investors</a></li>
+            <li><a href="#">Airbnb.org emergency stays</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    
+     <div class="f-info-social" >
+       <a href="https://www.facebook.com/AirbnbIndia"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+       <a href="https://www.instagram.com/airbnb/"><i class="fa-brands fa-square-instagram" aria-hidden="true"></i></a>
+       <a href="https://x.com/i/flow/login?redirect_after_login=%2Fairbnb_in"><i class="fa-brands fa-x-twitter"></i></a>
+     </div>
+     <div class="f-info-brand">&copy; WanderLust Private Limited</div>
+     <div class="f-info-links">
+       <a href="/privacy">Privacy</a>
+       <a href="/terms">Terms</a>
+     </div>
+   </div>
+ </footer>
+ 

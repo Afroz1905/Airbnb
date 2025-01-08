@@ -16,6 +16,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./user.js");
 const MongoStore=require("connect-mongo");
+app.use(express.static('listings'));
 
 
 const listingRouter= require("./routes/listing1.js");
@@ -146,20 +147,28 @@ app.use("/",userRouter);
 //index route
 app.get("/Listings",wrapAsync(listingController.index));
 
-
-
-// app.all("*",(req,res,next)=>{
-//     next(new ExpressError(404,"Page Not Found!"));
-// });
-
 app.use((err,req,res,next)=>{
     let{statusCode=500,message="Something went Wrong!"} =err;
     res.status(statusCode).render("error.ejs",{err});
     // res.status(statusCode).send(message);
 });
+app.use((req, res, next) => {
+    res.locals.page = null; // Default value
+    next();
+});
 
+app.get('/popular', (req, res) => {
+    res.locals.page = 'popular';
+    res.render('layouts/boilerplate');
+});
 
-
-app.listen(8080,(req,res)=>{
+  app.get('/arts', (req, res) => {
+    res.render('./partials/arts'); // Render the Arts & Culture content
+  });
+  
+  app.get('/outdoors', (req, res) => {
+    res.render('./partials/outdoors'); // Render the Outdoors content
+  });
+  app.listen(8080,(req,res)=>{
     console.log("server is running on port 8080");
 });

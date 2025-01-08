@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    
 }
 body{
     min-height: 100%;
@@ -13,8 +14,9 @@ body{
 }
 
 .navbar{
-    height: 5rem;
+    height: 7rem;
     background-color: #fff;
+    border-bottom: none;
 }
 .fa-compass{
    color: #fe424d;
@@ -38,17 +40,21 @@ body{
 
 }
 .f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 1rem;
+    font-size: 1.4rem;
+    margin-right: 2rem;
 }
 .f-info{
     text-align: center;
-    height: 8rem;
+    height:  auto;
     background-color: #ebebeb;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    display: block;
+}
+footer{
+    margin-top: auto;
 }
 .listing-card{
     border: none !important;
@@ -66,7 +72,7 @@ body{
     font-weight: 400 !important;
 }
 .card-img-overlay{
-    opacity: 0;
+    opacity: 1;
 }
 .card-img-overlay:hover{
     opacity: 0.2;

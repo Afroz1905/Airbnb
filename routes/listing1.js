@@ -20,17 +20,9 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
-
-
-
-// const mongoose=require("mongoose");
-// const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
- 
 const review = require("../review.js");
 
 const listingController= require("../controllers/listing.js");
-
-
 
 router
     .route("/")
